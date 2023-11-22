@@ -6,6 +6,7 @@ import {userRouter} from "./routes/users.js";
 import { recipesRouter } from "./routes/recipes.js";
 
 const app=express();
+const PORT = process.env.PORT || 3001;
 
 app.use(express.json());
 app.use(cors()); 
@@ -14,4 +15,4 @@ app.use("/auth",userRouter);
 app.use("/recipes",recipesRouter);
 
 mongoose.connect("mongodb+srv://recipes:MernStack123@recipes.mr8bpob.mongodb.net/recipes?retryWrites=true&w=majority")
-app.listen(3001,()=>console.log("SERVER STARTED!"));
+app.listen(PORT,()=>console.log("SERVER STARTED!"));
